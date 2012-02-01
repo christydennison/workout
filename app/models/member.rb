@@ -1,3 +1,4 @@
 class Member < ActiveRecord::Base
-  has_many :events
+  belongs_to :event
+  belongs_to :user
 end

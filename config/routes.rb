@@ -1,4 +1,12 @@
 Workout::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :profiles
+
   resources :users
 
   resources :calendars
@@ -56,7 +64,7 @@ Workout::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'calendars#index'
 
   # See how all your routes lay out with "rake routes"
 
