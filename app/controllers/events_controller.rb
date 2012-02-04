@@ -24,10 +24,6 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    if session[:user_id]  # Have user logged in
-      
-    end
-
     @event = Event.new
 
     respond_to do |format|
@@ -45,10 +41,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @event.owner = session[:user_id]
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_url, notice: 
+        format.html { redirect_to calendar_url, notice: 
             'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
@@ -66,7 +63,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to events_url, notice: 
+        format.html { redirect_to calendar_url, notice: 
             'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,7 +81,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to calendar_url }
       format.json { head :no_content }
     end
   end

@@ -4,6 +4,7 @@
 
 <h1>Workout with me</h1>
 <h2>A great place to find people to workout with!</h2>
+<% logger.debug "\n \n ********* \n Debugger works in view! ********* \n \n" %>
 
 <%= render 'events/index', :events => Event.all %>
 
@@ -13,6 +14,7 @@
   <div> <%= link_to 'Register', register_url %></div>
 <% end %>
 <% if current_user %>
+  <% debug "CURRENT USER: #{current_user}" %>
   <div> <%= link_to 'Logout', logout_url %></div>
 <% end %>
 

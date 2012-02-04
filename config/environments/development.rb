@@ -35,3 +35,7 @@ Workout::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
+
+Rails.logger = Logger.new(STDOUT)
+#Rails.logger = Log4r::Logger.new("Application Log")
+Rails.logger.debug "The logger works!"
