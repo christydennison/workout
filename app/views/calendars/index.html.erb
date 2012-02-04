@@ -14,8 +14,8 @@
   <div> <%= link_to 'Register', register_url %></div>
 <% end %>
 <% if current_user %>
-  <% debug "CURRENT USER: #{current_user}" %>
   <div> <%= link_to 'Logout', logout_url %></div>
 <% end %>
+<% debug "CURRENT USER: #{current_user}" %>
 
 <br />
