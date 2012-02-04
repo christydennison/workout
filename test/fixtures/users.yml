@@ -2,14 +2,8 @@
 
 one:
   athena: MyString
-  name: MyString
   password_digest: MyString
-  course: MyString
-  bio: MyText
 
 two:
   athena: MyString
-  name: MyString
   password_digest: MyString
-  course: MyString
-  bio: MyText

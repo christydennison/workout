@@ -3,6 +3,10 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    @update = {
+      athena: "Athena",
+      password_digest: "password_digest"
+    }
   end
 
   test "should get index" do

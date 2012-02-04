@@ -1,9 +1,28 @@
 Workout::Application.routes.draw do
-  get "sessions/new"
+  resources :memberships
 
-  get "sessions/create"
-
-  get "sessions/destroy"
+  get "admin/index"
+  get 'admin' => 'admin#index'
+  
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  controller :users do
+    get 'register' => :new
+    post 'register' => :create
+    delete 'remove_account' => :destroy
+  end
+  
+  controller :events do
+    get 'new_event' => :new
+    post 'new_event' => :create
+    delete 'delete' => :destroy
+  end
+  
+  #get "calendar/index"  # Don't need this b/c there is a full scaffold in place
 
   resources :profiles
 

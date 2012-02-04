@@ -1,0 +1,20 @@
+<table>
+<% events.each do |event| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+        <td> <%= event.title %></td>
+        <td> <%= event.date && event.date.strftime('%b %e') %></td>
+        <td> <%= event.time && event.time.strftime('%l:%M:%S%P') %></td>
+        <td> <%= event.place %></td>
+        <td> <%= event.description %></td>
+        <td class="list_actions">
+            <%= link_to 'Show', event %><br/>
+            <%= link_to 'Edit', edit_event_path(event) %><br/>
+            <%= link_to 'Delete', event,
+                confirm: 'Are you sure?',
+                method: :delete %>
+        </td>
+    </tr>
+<% end %>
+</table>
+
+<br />

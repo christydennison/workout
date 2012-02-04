@@ -11,21 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201062432) do
-
-  create_table "Members", :force => true do |t|
-    t.string   "athena"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "event_id"
-  end
-
-  create_table "Users", :force => true do |t|
-    t.string   "athena"
-    t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120204040420) do
 
   create_table "calendars", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -33,10 +19,19 @@ ActiveRecord::Schema.define(:version => 20120201062432) do
   end
 
   create_table "events", :force => true do |t|
+    t.string   "title"
     t.date     "date"
     t.time     "time"
     t.string   "place"
-    t.string   "owner"
+    t.text     "description"
+    t.integer  "owner"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -46,8 +41,16 @@ ActiveRecord::Schema.define(:version => 20120201062432) do
     t.string   "course"
     t.string   "bio"
     t.boolean  "visible"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "athena"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

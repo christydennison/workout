@@ -3,10 +3,6 @@
 <table>
   <tr>
     <th>Athena</th>
-    <th>Name</th>
-    <th>Password digest</th>
-    <th>Course</th>
-    <th>Bio</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,10 +11,6 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.athena %></td>
-    <td><%= user.name %></td>
-    <td><%= user.password_digest %></td>
-    <td><%= user.course %></td>
-    <td><%= user.bio %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>

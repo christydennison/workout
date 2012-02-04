@@ -4,14 +4,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  name: MyString
-  course: MyString
-  bio: MyText
-  visible: true
-
-two:
-  name: MyString
-  course: MyString
-  bio: MyText
-  visible: false
+one: {}
+# column: value
+#
+two: {}
+#  column: value

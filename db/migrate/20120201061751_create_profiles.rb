@@ -5,6 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :course
       t.string :bio
       t.boolean :visible
+      t.integer :user_id
       t.timestamps
     end
   end

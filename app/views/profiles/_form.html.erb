@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= "Add in something to catch user_id here." %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -21,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :bio %><br />
-    <%= f.text_field :bio %>
+    <%= f.text_field :bio, rows: 6 %>
   </div>
   <div class="field">
     <%= f.label :visible %><br />
