@@ -31,7 +31,6 @@ gem 'bcrypt-ruby'
 gem 'googlecalendar'
 gem 'google-api-client', :require => 'google/api_client'
 gem 'mechanize'
-gem 'heroku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
