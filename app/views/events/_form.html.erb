@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :time %><br />
-    <%= f.time_select :time, ampm: true %>
+    <%= f.time_select :time, ampm: true, minute_step: 15 %>
   </div>
   <div class="field">
     <%= f.label :place %><br />

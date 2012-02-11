@@ -5,6 +5,7 @@
   <%= @user.athena %>
 </p>
 
-<%= link_to 'Create Profile', new_profile_path  %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= render 'memberships/index', user_id: @user.id %>
+
+<%= link_to 'Home', calendars_path %> | 
+<%= link_to 'Change password', edit_user_path(@user) %>

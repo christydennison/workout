@@ -8,11 +8,11 @@
 </head>
 
 <body class='<%= controller.controller_name %>'>
-<div> <% cu = "nil"
+<div> <% cu = nil
          if current_user 
            cu = current_user.athena
          end %>
-  <%= "Current_user: #{cu}" %> </div>
+  <%= "Current_user: #{cu.inspect}" %> </div>
 <%= yield %>
 
 </body>

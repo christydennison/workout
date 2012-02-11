@@ -41,16 +41,14 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @event = Event.find params[:event_id]  # Passing in event id from view
-    @membership = @event.add_membership params[:user_id]
+    #current_user = User.find params[:user_id]
+    @membership = @event.add_membership current_user
     @membership.save
-    Rails.logger.debug " ***\n Membership #{@membership.inspect} in memberships
-        controller.\n Event params: #{params[:event_id]}\n User params: 
-        #{params[:user_id]}\n ***"
 
     respond_to do |format|
       if @membership.save
         Rails.logger.debug " ***\n Membership saved in memberships controller.\n ***"
-        format.html { redirect_to profile_path, notice: 'Membership was successfully created.' }
+        format.html { redirect_to current_user }
         format.json { render json: @membership, status: :created, location: @membership }
       else
         format.html { render action: "new" }
@@ -82,7 +80,7 @@ class MembershipsController < ApplicationController
     @membership.destroy
 
     respond_to do |format|
-      format.html { redirect_to memberships_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end

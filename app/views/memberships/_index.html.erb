@@ -1,14 +1,16 @@
 <h1>Listing memberships</h1>
 
 <table>
+  <% logger.debug " ***\n User_id: #{user_id}.\n ***" %>
+<% Membership.find_all_by_user_id(user_id).each do |membership| %>
   <tr>
-    <th>Athena</th>
-  </tr>
-
-<% @memberships.find_by_user_id(:user_id) do |membership| %>
-  <tr>
-    <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
-    <td><%= link_to 'Destroy', membership, confirm: 'Are you sure?', method: :delete %></td>
+    <td> <%= membership.event.title %></td>
+    <td> <%= membership.event.date && membership.event.date.strftime('%b %e') %></td>
+    <td> <%= membership.event.time && membership.event.time.strftime('%l:%M:%S%P') %></td>
+    <td> <%= membership.event.place %></td>
+    <td> <%= membership.event.description %></td>
+    <td> <%= link_to 'Delete', membership, confirm: 'Are you sure?', 
+                 method: :delete %></td>
   </tr>
 <% end %>
 </table>

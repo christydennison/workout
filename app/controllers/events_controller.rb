@@ -41,8 +41,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-    @event.owner = session[:user_id]
-    @event.add_membership :user_id
+    @event.owner = current_user
+    @event.add_membership current_user
 
     respond_to do |format|
       if @event.save

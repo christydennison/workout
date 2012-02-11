@@ -4,6 +4,7 @@ Workout::Application.routes.draw do
   get "admin/index"
   get 'admin' => 'admin#index'
   get 'calendars' => 'calendars#index'
+  get 'edit_password' => 'users#edit_password'
   
   controller :sessions do
     get 'login' => :new

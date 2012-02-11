@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to calendar_url, notice: 
+        format.html { redirect_to current_user, notice: 
             'User was successfully updated.' }
         format.json { head :no_content }
       else
