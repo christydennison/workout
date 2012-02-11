@@ -3,14 +3,10 @@
 <table>
   <tr>
     <th>Athena</th>
-    <th>Name</th>
-    <th>Course</th>
-    <th>Bio</th>
   </tr>
 
-<% @memberships.each do |membership| %>
+<% @memberships.find_by_user_id(:user_id) do |membership| %>
   <tr>
-    <td><%= link_to 'Show', membership %></td>
     <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
     <td><%= link_to 'Destroy', membership, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -18,4 +14,3 @@
 </table>
 
 <br />
-

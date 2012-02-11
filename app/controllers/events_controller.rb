@@ -42,6 +42,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.owner = session[:user_id]
+    @event.add_membership :user_id
 
     respond_to do |format|
       if @event.save

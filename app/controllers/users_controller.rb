@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_filter :authorize, only: [:create, :new]
   # GET /users
   # GET /users.json
   def index
@@ -41,9 +42,18 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    
+    # Create profile now so we won't have to do it later
+    #@profile = Profile.new user_id: @user
+    
+    #@user.profile << @profile
+    @profile = @user.build_profile user_id: @user 
+    @profile.visible = false  # default
+    Rails.logger.debug "User.profile: #{@user.profile}"
+    
     respond_to do |format|
       if @user.save
+        @profile.save  # If the user saves info, then save the profile too
         format.html { redirect_to calendar_url, notice: 
             'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }

@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authorize
-  Rails.logger.debug "\n *********\n In application controller.\n *********\n"
-
   attr_reader :current_user
 
   protected
   def authorize
+    Rails.logger.debug "\n *********\n In authorize in app. cont.\n *********\n"
     @current_user = User.find_by_id(session[:user_id])
     Rails.logger.debug "\n *********\n CURRENT USER: #{current_user.inspect}\
         \n#{current_user}\n *********\nIn application controller.\n"

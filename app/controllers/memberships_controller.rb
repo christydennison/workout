@@ -40,11 +40,17 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
-    @membership = Membership.new(params[:membership])
+    @event = Event.find params[:event_id]  # Passing in event id from view
+    @membership = @event.add_membership params[:user_id]
+    @membership.save
+    Rails.logger.debug " ***\n Membership #{@membership.inspect} in memberships
+        controller.\n Event params: #{params[:event_id]}\n User params: 
+        #{params[:user_id]}\n ***"
 
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+        Rails.logger.debug " ***\n Membership saved in memberships controller.\n ***"
+        format.html { redirect_to profile_path, notice: 'Membership was successfully created.' }
         format.json { render json: @membership, status: :created, location: @membership }
       else
         format.html { render action: "new" }

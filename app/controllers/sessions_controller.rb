@@ -12,10 +12,12 @@ class SessionsController < ApplicationController
     Rails.logger.debug "\n *********\n CONTROLLER USER: #{user}\n \
         #{user.inspect}\n *********\n In session controller.\n" 
     Rails.logger.debug "\n *********\n CONTROLLER AUTH.:\ 
-        #{user.authenticate(params[:password])}\n \
+        
         #{user.inspect}\n *********\n In session controller.\n" 
     if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
+      Rails.logger.debug "\n *********\n INSIDE CONTROLLER IF
+      \n *********\n In session controller.\n" 
+      session[:user_id] = user.id  # Create session for user
       redirect_to calendar_url
     else
       redirect_to login_url, alert: "Invalid user/password combination"

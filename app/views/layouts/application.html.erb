@@ -8,7 +8,11 @@
 </head>
 
 <body class='<%= controller.controller_name %>'>
-<div> <%= "Current_user: #{current_user}" %> </div>
+<div> <% cu = "nil"
+         if current_user 
+           cu = current_user.athena
+         end %>
+  <%= "Current_user: #{cu}" %> </div>
 <%= yield %>
 
 </body>

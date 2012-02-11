@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20120204040420) do
   create_table "profiles", :force => true do |t|
     t.string   "name"
     t.string   "course"
-    t.string   "bio"
+    t.text     "bio"
     t.boolean  "visible"
     t.integer  "user_id"
     t.datetime "created_at", :null => false

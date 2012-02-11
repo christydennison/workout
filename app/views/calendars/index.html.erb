@@ -7,15 +7,22 @@
 
 <%= render 'events/index', :events => Event.all %>
 
-<div> <%= link_to 'New Event', new_event_url %></div>
+<div> <%= button_to 'New Event', new_event_path %></div>
 <% if session[:user_id] %>
-  <div> <%= link_to 'Logout', logout_url, method: :delete %></div>
+  <% logger.debug "\n *********\n Profile in CalIndex: 
+    #{Profile.find_by_user_id(session[:user_id])}\n
+    Session: #{session[:user_id]}
+    \n *********\n In calendar index.\n" %>
+    
+  <div> <%= button_to 'My Profile', Profile.find_by_user_id(session[:user_id]), 
+                method: :get %></div>
+  <div> <%= button_to 'Logout', logout_url, method: :delete %></div>
 <% else %>
-  <div> <%= link_to 'Login', login_url %></div>
-  <div> <%= link_to 'Register', register_url %></div>
+  <div> <%= button_to 'Login', login_url, method: :get %></div>
+  <div> <%= button_to 'Register', register_url, method: :get %></div>
 <% end %>
 
 <% logger.debug "\n *********\n CURRENT USER: #{current_user.inspect}\
-    \n#{current_user}\n *********\nIn calendar index.\n" %>
+    \n #{current_user}\n *********\n In calendar index.\n" %>
 
 <br />

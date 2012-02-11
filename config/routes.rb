@@ -17,13 +17,11 @@ Workout::Application.routes.draw do
     delete 'remove_account' => :destroy
   end
   
-  controller :events do
-    get 'new_event' => :new
-    post 'new_event' => :create
-    delete 'delete' => :destroy
-  end
-  
-  #get "calendar/index"  # Don't need this b/c there is a full scaffold in place
+  #controller :events do
+  #  get 'new_event' => :new
+  #  post 'new_event' => :create
+  #  delete 'delete' => :destroy
+  #end
 
   resources :profiles
 

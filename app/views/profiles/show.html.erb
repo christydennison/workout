@@ -2,24 +2,26 @@
 
 <p>
   <b>Name:</b>
-  <%= @user.name %>
+  <%= @profile.name %>
 </p>
 
 <p>
   <b>Course:</b>
-  <%= @user.course %>
+  <%= @profile.course %>
 </p>
 
 <p>
   <b>Bio:</b>
-  <%= @user.bio %>
+  <%= @profile.bio %>
 </p>
 
 <p>
   <b>Visible to everyone on the site (instead of only the events you 
     subscribe to):</b>
-  <%= @user.visible %>
+  <%= @profile.visible %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Home', calendars_path %>
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+
+

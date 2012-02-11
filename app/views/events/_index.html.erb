@@ -7,6 +7,8 @@
         <td> <%= event.place %></td>
         <td> <%= event.description %></td>
         <td class="list_actions">
+            <%= button_to 'Join!', memberships_path(event_id: event), 
+                    method: :create %>
             <%= link_to 'Show', event %><br/>
             <%= link_to 'Edit', edit_event_path(event) %><br/>
             <%= link_to 'Delete', event,
